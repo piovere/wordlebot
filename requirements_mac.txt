@@ -1,0 +1,4 @@
+# MacOS requirements
+numpy
+tensorflow-macos
+tensorflow-metal

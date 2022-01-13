@@ -1,0 +1,7 @@
+# Dev requirements on mac
+numpy
+pytest
+pytest-cov
+coverage
+tensorflow-macos
+tensorflow-metal
