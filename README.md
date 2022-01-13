@@ -11,3 +11,6 @@ To be clear, I'm going to focus on the RL here. To that end, I'm going to presen
 - [ ] Write an ML agent that receives world state and produces a guess vector ([5, 27] output)
 - [ ] Train that agent until it's way better than I am at Wordle
 - [ ] Go back to averaging a 5.3 guess rate on my own
+
+## Dumb notes
+- There's a tests folder. That's mostly so I can keep myself honest/optimize the game step (since that'll likely be slow)
