@@ -12,6 +12,10 @@ def yellows(guess: str, target: str):
 	>>> g = 'efghi'
 	>>> yellows(g, t)
 	[('e', 0)]
+	>>> g = 'sassy'
+	>>> t = 'sears'
+	>>> yellows(g, t)
+	[('s', 0), ('a', 1), ('s', 2)]
 	"""
 	out = []
 	for i, g in enumerate(guess):
@@ -29,12 +33,24 @@ def greens(guess: str, target: str):
 	>>> t = 'fgcdh'
 	>>> greens(g, t)
 	[('c', 2), ('d', 3)]
+	>>> g = 'sassy'
+	>>> t = 'sears'
+	>>> greens(g, t)
+	[('s', 0)]
 	"""
 	greens = [(g, i) for i, (g, t) in enumerate(zip(guess, target)) if g == t]
 	return greens
 	
 def grade(guess: str, target: str) -> np.ndarray:
-	"""Evaluate a guess against the true word"""
+	"""Evaluate a guess against the true word
+	
+	Examples
+	--------
+	>>> g = 'sassy'
+	>>> t = 'sears'
+	>>> grade(g, t)
+	"A failing test here"
+	"""
 	out = np.zeros((5, 26+26+26+1), dtype=bool)
 	
 	gs = greens(guess, target)
