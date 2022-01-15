@@ -110,6 +110,9 @@ def grade(guess: str, target: str) -> np.ndarray:
         LOG.debug(f"Setting character {i} (guess: {lg}, real: {lt}) to {offset+cd[lg]}")
         out[i, cd[lg]+offset] = True
     
+    # Dummy check
+    assert out[:, 0].sum() == 0
+    
     return out
     
 if __name__ == "__main__":
