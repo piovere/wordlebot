@@ -2,6 +2,12 @@
 
 Making notes to myself as I screw things up
 
+## 14 January 2022
+
+I wrote the test to extract the green and yellow guesses per yesterday's note, and that was fine. But when I circled back to combine them (and return an evaluation of the guess, with green, yellow, and gray letters), I had a harder time than I wanted. Some of it was regular programmer brain (referring to the actual word, not the guess), and some of it was not cleaning up behind myself (deleting letters from the yellow list as they were used so they didn't get reported twice). I think it's right now, but I should probably add more tests to be sure (maybe I'll just start taking my guesses from the actual Wordle game!).
+
+Next step will be to take the evaluation result and incorporate it into the world state that I described yesterday, then writing the logic that handles turns and assigns rewards for the various guesses. I'm thinking that each yellow is `+1`, each green is `+10`, and a correct guess is something like `+100 * (6 - guess_number)`. I do want the network to learn not to guess fake words, so I'll also add an evaluation loop to check if the word is not in the word list and assign a very negative score (`-1000`?) in response. That would also have the effect of pushing up the guess number without changing the world state. Is it fair to make the "game is over" logic just check the sum of the last part of the world vector? I.e. verify that `world[-5:, 1:].sum() > 0`? I think that would mean that the last 5 letters are not blank. I suppose I could also verify that the number of blank letters is zero with a while loop `while world[:, 0].sum() > 0: # DO STUFF`.
+
 ## 13 January 2022
 
 My dog was apparently excited for me to come back to this project on day 2. At least that's why I assume she woke me up at 3am.
